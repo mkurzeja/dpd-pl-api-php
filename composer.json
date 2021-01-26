@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "phpro/soap-client": "0.6.0",
+    "phpro/soap-client": "^v1.0.0",
     "sabre/xml": "^2.1",
     "psr/http-client": "^1.0",
     "psr/http-client-implementation": "*",
