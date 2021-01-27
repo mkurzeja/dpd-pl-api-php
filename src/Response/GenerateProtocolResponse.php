@@ -8,19 +8,22 @@ class GenerateProtocolResponse
 {
     private $fileContent;
 
+    private $documentId;
+
     /**
      * GenerateLabelsResponse constructor.
      *
      * @param $fileContent
      */
-    protected function __construct($fileContent)
+    protected function __construct($fileContent, $documentId)
     {
         $this->fileContent = $fileContent;
+        $this->documentId = $documentId;
     }
 
     public static function from(GenerateProtocolV2Response $response)
     {
-        return new static($response->getReturn()->getDocumentData());
+        return new static($response->getReturn()->getDocumentData(), $response->getReturn()->getDocumentId());
     }
 
     /**
@@ -29,5 +32,10 @@ class GenerateProtocolResponse
     public function getFileContent()
     {
         return $this->fileContent;
+    }
+
+    public function getDocumentId()
+    {
+        return $this->documentId;
     }
 }
